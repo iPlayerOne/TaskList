@@ -14,7 +14,7 @@ class TaskListViewController: UITableViewController {
     
     private let cellID = "task"
     private var taskList: [Task] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
@@ -22,7 +22,7 @@ class TaskListViewController: UITableViewController {
         setupNavigationBar()
         fetchData()
     }
-
+    
     private func setupNavigationBar() {
         title = "Task List"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -64,27 +64,23 @@ class TaskListViewController: UITableViewController {
     }
     
     
-     func save(_ taskName: String) {
-         let task = Task(context: viewContext)
-         let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
-         let currentIndex = tableView.indexPathForSelectedRow
-         
-         if cellIndex != currentIndex {
-             task.title = taskName
-             taskList.append(task)
-             tableView.insertRows(at: [cellIndex], with: .automatic)
-         } else {
-             taskList[currentIndex?.row ?? 0] = task
-             tableView.reloadData()
-         }
-                 
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch let error {
-                print(error)
-            }
+    func save(_ taskName: String) {
+        let task = Task(context: viewContext)
+        task.title = taskName
+        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
+        
+        if let currentIndex = tableView.indexPathForSelectedRow {
+            StorageManager.shared.persistentContainer.viewContext
+                .delete(taskList[currentIndex.row])
+            taskList[(currentIndex.row)] = task
+            tableView.reloadData()
+        } else {
+            taskList.append(task)
+            tableView.insertRows(at: [cellIndex], with: .automatic)
+            tableView.reloadData()
         }
+        
+        StorageManager.shared.saveContext()
     }
 }
 

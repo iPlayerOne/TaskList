@@ -57,6 +57,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		30334E4228B5868E0088F61E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A8B9AC9328B29E680069665A /* AppDelegate.swift */,
+				A8B9AC9528B29E680069665A /* SceneDelegate.swift */,
+				A8B9ACA428B29E680069665A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		30334E4328B586A70088F61E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8B9AC9728B29E680069665A /* TaskListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A8B9AC8728B29E670069665A = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +96,10 @@
 			children = (
 				30334E3F28B3E79D0088F61E /* Extensions */,
 				30334E3C28B3B4970088F61E /* Services */,
-				A8B9AC9328B29E680069665A /* AppDelegate.swift */,
-				A8B9AC9528B29E680069665A /* SceneDelegate.swift */,
-				A8B9AC9728B29E680069665A /* TaskListViewController.swift */,
+				30334E4228B5868E0088F61E /* App */,
+				30334E4328B586A70088F61E /* ViewControllers */,
 				A8B9AC9F28B29E680069665A /* Assets.xcassets */,
 				A8B9ACA128B29E680069665A /* LaunchScreen.storyboard */,
-				A8B9ACA428B29E680069665A /* Info.plist */,
 				A8B9AC9C28B29E680069665A /* TaskList.xcdatamodeld */,
 			);
 			path = TaskList;
@@ -305,7 +321,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M2L3X2RFT6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TaskList/Info.plist;
+				INFOPLIST_FILE = TaskList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -332,7 +348,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M2L3X2RFT6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TaskList/Info.plist;
+				INFOPLIST_FILE = TaskList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

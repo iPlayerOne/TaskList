@@ -45,17 +45,5 @@ class StorageManager {
         saveContext()
     }
     
-    func update(with object: NSManagedObject) {
-        let context = StorageManager.shared.persistentContainer.viewContext
-        context.delete(object)
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }
 
