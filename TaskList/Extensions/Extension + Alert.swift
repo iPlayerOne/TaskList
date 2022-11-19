@@ -6,21 +6,28 @@
 //
 
 import UIKit
-extension TaskListViewController {
+
+extension UIAlertController {
     
-    func showAlert(withTitle title: String, andMessage message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
-            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            save(task)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { textField in
-            textField.placeholder = "New Task"
+    static func createAlertController(withTitle title: String) -> UIAlertController {
+        UIAlertController(title: title, message: "What do you want to do?", preferredStyle: .alert)
+    }
+    
+    func action(task: Task?, completion: @escaping(String) -> Void) {
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            guard let newValue = self?.textFields?.first?.text else { return }
+            guard !newValue.isEmpty else { return }
+            completion(newValue)
         }
         
-        present(alert, animated: true)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        addAction(saveAction)
+        addAction(cancelAction)
+        addTextField { textField in
+            textField.placeholder = "Task"
+            textField.text = task?.title
+        }
     }
 }
+

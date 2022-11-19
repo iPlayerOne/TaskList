@@ -41,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300467F729294EC5004335E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8B9AC9C28B29E680069665A /* TaskList.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		30334E3C28B3B4970088F61E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,13 +102,13 @@
 		A8B9AC9228B29E680069665A /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				300467F729294EC5004335E9 /* Models */,
 				30334E3F28B3E79D0088F61E /* Extensions */,
 				30334E3C28B3B4970088F61E /* Services */,
 				30334E4228B5868E0088F61E /* App */,
 				30334E4328B586A70088F61E /* ViewControllers */,
 				A8B9AC9F28B29E680069665A /* Assets.xcassets */,
 				A8B9ACA128B29E680069665A /* LaunchScreen.storyboard */,
-				A8B9AC9C28B29E680069665A /* TaskList.xcdatamodeld */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
